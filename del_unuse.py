@@ -50,6 +50,24 @@ def del_useless(data_list):
     return data_list
 
 
+def get_useless(data_list):
+    """
+    输入一个二维数组，筛选出重复的信息 最后返回一个数组
+    :param data_list:
+    :return:
+    """
+    len_of_excel = len(data_list)  # excel的行数
+    number_to_get = []
+    for i in range(len_of_excel - 1):
+        if data_list[i][2] == data_list[i + 1][2]:
+            number_to_get.append(i)
+    print number_to_get
+    get_duplication = []
+    for x in range(len(number_to_get)):
+        get_duplication.append(data_list[number_to_get[x]])
+    return get_duplication
+
+
 def to_new_excel(filename, date_src):
     """
     把资源写入到excel中
@@ -69,5 +87,6 @@ def to_new_excel(filename, date_src):
 
 if __name__ == '__main__':
     x = read_info("all.xlsx")
-    date_list = del_useless(x)
+    date_list = get_useless(x)
+    # date_list = del_useless(x)
     to_new_excel('final.xlsx', date_list)
