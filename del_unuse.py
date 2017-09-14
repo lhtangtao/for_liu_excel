@@ -61,6 +61,7 @@ def get_useless(data_list):
     for i in range(len_of_excel - 1):
         if data_list[i][2] == data_list[i + 1][2]:
             number_to_get.append(i)
+    print u'以下数据是出现重复的数据，请自行加1'
     print number_to_get
     get_duplication = []
     for x in range(len(number_to_get)):

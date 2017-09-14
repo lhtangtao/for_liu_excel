@@ -15,7 +15,7 @@
 import xlrd
 import xlsxwriter
 
-
+datavalue = []
 # 打开一个excel文件
 def open_xls(file):
     fh = xlrd.open_workbook(file)
@@ -85,7 +85,5 @@ if __name__ == '__main__':
     allxls = ['1.xlsx', '2.xlsx', '3.xlsx', '4.xlsx', '5.xlsx', '6.xlsx', '7.xlsx', '8.xlsx', '9.xlsx',
               '10.xlsx', '11.xlsx', '101.xlsx', '102.xlsx', '103.xlsx', '104.xlsx', '105.xlsx', '106.xlsx',
               '107.xlsx']  # 此处输入你要合并的excel文件的文件名
-    # allxls = ['55.xlsx', '66.xlsx']
-    datavalue=[]
     merge(allxls, 'all.xlsx')
 
