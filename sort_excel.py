@@ -24,11 +24,6 @@ def sort_by(num, file_path):
     wb = excel.Workbooks.Open(file_path)
     ws = wb.Worksheets('Sheet1')
     ws.Range('A1:M321').Sort(Key1=ws.Range(num), Order1=1, Orientation=1)  # 使用win32的api进行排序
+    print u'文件排序完成'
     wb.Save()
     wb.Close(SaveChanges=0)
-
-
-if __name__ == '__main__':
-    # closesoft()
-    total_base_dir = (os.path.dirname(__file__) + '/all.xlsx').replace('/', "\\")
-    sort_by('C1', total_base_dir)

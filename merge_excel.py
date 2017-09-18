@@ -14,8 +14,10 @@
 # 将多个Excel文件合并成一个
 import xlrd
 import xlsxwriter
-
+import os
 datavalue = []
+
+
 # 打开一个excel文件
 def open_xls(file):
     fh = xlrd.open_workbook(file)
@@ -64,10 +66,14 @@ def merge(excel_list, merge_name):
     :param merge_name:
     :return:
     """
+    rvalue = []
     wb1 = xlsxwriter.Workbook(merge_name)
     # 创建一个sheet工作对象
     ws = wb1.add_worksheet()
+    base = os.path.dirname(__file__)
+    all_excels = os.path.join(base, 'excels')
     for fl in excel_list:
+        fl = all_excels + '\\' + fl
         fh = open_xls(fl)
         x = get_shnum(fh)
         for shnum in range(x):
@@ -86,4 +92,3 @@ if __name__ == '__main__':
               '10.xlsx', '11.xlsx', '101.xlsx', '102.xlsx', '103.xlsx', '104.xlsx', '105.xlsx', '106.xlsx',
               '107.xlsx']  # 此处输入你要合并的excel文件的文件名
     merge(allxls, 'all.xlsx')
-
