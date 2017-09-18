@@ -73,7 +73,7 @@ def merge(excel_list, merge_name):
     base = os.path.dirname(__file__)
     all_excels = os.path.join(base, 'excels')
     for fl in excel_list:
-        fl = all_excels + '\\' + fl
+        fl = os.path.join(all_excels, fl)
         fh = open_xls(fl)
         x = get_shnum(fh)
         for shnum in range(x):

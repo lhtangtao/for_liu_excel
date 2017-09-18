@@ -21,7 +21,6 @@ if __name__ == '__main__':
     all_excels = os.path.join(base, 'excels')
     for root, dirs, files in os.walk(all_excels):
         allxls = files  # 当前路径下所有非目录子文件
-    print allxls
     merge(allxls, 'all.xlsx')  # 合并列表中的excel到一个叫做all.xlsx的excel文件夹中。
     total_base_dir = (os.path.dirname(__file__) + '/all.xlsx').replace('/', "\\")
     sort_by('C1', total_base_dir)  # 根据C行来进行排序
